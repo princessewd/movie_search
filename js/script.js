@@ -74,3 +74,12 @@ function selectOption(selectedOption) {
 }
 
 const overlay = document.getElementById("overlay");
+
+function showQuiz() {
+    overlay.style.display = "flex";
+    showQuestion();
+}
+
+function hideQuiz() {
+    overlay.style.display = "none";
+}
