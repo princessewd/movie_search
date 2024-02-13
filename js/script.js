@@ -77,6 +77,20 @@ const init = () => {
 };
 const displayQuestion = (index) => {
     const currentQuestion = questions[index];
+
+    const questionEl = els.questionScreen.querySelector('h2');
+    const answersContainersEl = els.question.querySelector('ul');
+
+    const answersEls = currentQuestion.answers.map((answers) => {
+        const liEl = document.createElement('li')
+        liEl.textContent = answer.title;
+        liEl.setAttribute('data-catégorie', answer.catégorie);
+        return liEl;
+    }):
+
+    questionEl.textContent = currentQuestion.question;
+    answersContainerEl.textContent = '';
+    answersContainerEl.insertAdjacentElement('afterBegin', [...answerEls]);
 };
 
 const displayScreen = (screenName) => {
