@@ -1,4 +1,52 @@
-const questions = [
+// DOM => Document Object Model
+
+const els = {
+    quiz: null,
+    question: null,
+    endScreen: null,
+    quizBtn: null,
+    answers: null,
+    endBtn: null
+};
+
+const questions = [{
+    question: 'Recherches-tu un film ou une série ?',
+    answers: [
+        'Oui',
+        'Non'
+    ]
+}];
+
+
+const init = () => {
+    console.log('Page has loaded');
+
+    els.quiz = document.querySelector('.quiz');
+    els.question = document.querySelector('.question');
+    els.endScreen = document.querySelector('.end-screen');
+    els.endBtn = els.endScreen.querySelector('button');
+
+    els.quizBtn.addEventListener('click', () => {
+        displayScreen('question');
+    });
+};
+
+const displayScreen = (screenName) => {
+    console.log('screenName', screenName)
+    els.quiz.style.display = 'none';
+    els.question.style.display = 'none';
+    els.endScreen.style.display = 'none';
+
+    const screen = els[screenName + 'Screen'];
+    // console.log('screen', screen);
+    screen.style.display = 'flex';
+
+};
+
+
+window.addEventListener('load',init);
+
+/* const questions = [
     {
         question: "quel genre préfères- tu ?",
         options: ["Action", "Historique", "Comédie", "Drame", "Musical", "Policier","S-F","western","Documentaire","Horreur","Animation"]
@@ -82,4 +130,5 @@ function showQuiz() {
 
 function hideQuiz() {
     overlay.style.display = "none";
-}
+} */
+
