@@ -9,13 +9,56 @@ const els = {
     endBtn: null
 };
 
+const questionIndex = 0;
+
 const questions = [{
-    question: 'Recherches-tu un film ou une série ?',
-    answers: [
-        'Oui',
-        'Non'
-    ]
-}];
+        question: 'Recherches-tu un film ou une série ?',
+        answers: [{
+            title: 'Une film',
+            catégorie: 'film'
+        }, {
+            title: 'Une série',
+            catégorie: 'série'
+        }]
+    },
+    {
+        question: 'Quel genre préfères-tu ?',
+        answers: [{
+            title: 'Action',
+            catégorie: 'Action'
+        }, {
+            title: 'Historique',
+            catégorie: 'Historique'
+        }, {
+            title: 'Comédie',
+            catégorie: 'Comédie'
+        }, {
+            title: 'Drame',
+            catégorie: 'Drame'
+        }, {
+            title: 'Musicale',
+            catégorie: 'Musicale'
+        }, {
+            title: 'Policier',
+            catégorie: 'Policier'
+        }, {
+            title: 'S-F',
+            catégorie: 'S-F'
+        }, {
+            title: 'Documentaire',
+            catégorie: 'Documentaire'
+        }, {
+            title: 'Horreur',
+            catégorie: 'Horreur'
+        }, {
+            title: 'Thriller',
+            catégorie: 'Thriller'
+        }, {
+            title: 'Animation',
+            catégorie: 'Animation'
+        }]
+    }
+];
 
 
 const init = () => {
@@ -28,7 +71,12 @@ const init = () => {
 
     els.quizBtn.addEventListener('click', () => {
         displayScreen('question');
+        displayQuestion(questionIndex);
     });
+
+};
+const displayQuestion = (index) => {
+    const currentQuestion = questions[index];
 };
 
 const displayScreen = (screenName) => {
@@ -47,9 +95,6 @@ const displayScreen = (screenName) => {
 window.addEventListener('load',init);
 
 /* const questions = [
-    {
-        question: "quel genre préfères- tu ?",
-        options: ["Action", "Historique", "Comédie", "Drame", "Musical", "Policier","S-F","western","Documentaire","Horreur","Animation"]
     },
     {
         question: "Tu préfères les films/séries ?",
