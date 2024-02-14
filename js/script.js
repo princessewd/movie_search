@@ -6,10 +6,11 @@ const els = {
     endScreen: null,
     quizBtn: null,
     answers: null,
-    endBtn: null
+    endBtn: null,
+    answersContainer: null
 };
 
-const questionIndex = 0;
+let questionIndex = 0;
 
 const questions = [{
         question: 'Recherches-tu un film ou une série ?',
@@ -60,6 +61,7 @@ const questions = [{
     }
 ];
 
+const recordedQuestions = [];
 
 const init = () => {
     console.log('Page has loaded');
@@ -68,33 +70,52 @@ const init = () => {
     els.question = document.querySelector('.question');
     els.endScreen = document.querySelector('.end-screen');
     els.endBtn = els.endScreen.querySelector('button');
-
+    els.answersContainer = els.question.querySelector('ul');
     els.quizBtn.addEventListener('click', () => {
         displayScreen('question');
         displayQuestion(questionIndex);
     });
 
+    els.answersContainer.addEventListener('click', ({ target }) => {
+        if (target.tagName !== 'LI') {
+            return;
+        }
+        const catégorie = target.getAttribute('data-catégorie');
+        recordedAnswers.push(catégorie);
+
+        questionIndex++;
+
+        if (questionIndex >= questions.length) {
+            displayScreen('end');
+        } else {
+            displayQuestion(questionIndex);
+        }
+    });
+
+    
+
 };
 const displayQuestion = (index) => {
     const currentQuestion = questions[index];
 
-    const questionEl = els.questionScreen.querySelector('h2');
-    const answersContainersEl = els.question.querySelector('ul');
+    const questionsEl = els.questionScreen.querySelector('h2');
 
     const answersEls = currentQuestion.answers.map((answers) => {
         const liEl = document.createElement('li')
         liEl.textContent = answer.title;
         liEl.setAttribute('data-catégorie', answer.catégorie);
         return liEl;
-    }):
+    });
 
     questionEl.textContent = currentQuestion.question;
-    answersContainerEl.textContent = '';
-    answersContainerEl.insertAdjacentElement('afterBegin', [...answerEls]);
+    els.answersContainer.textContent = '';
+    els.answersContainer.append(...answerEls);
+
+
 };
 
 const displayScreen = (screenName) => {
-    console.log('screenName', screenName)
+    // console.log('screenName', screenName)
     els.quiz.style.display = 'none';
     els.question.style.display = 'none';
     els.endScreen.style.display = 'none';
