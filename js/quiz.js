@@ -176,15 +176,22 @@ const init = () => {
         questionIndex++;
 
         if (questionIndex >= questions.length) {
+            calculateScore();
             displayScreen('end');
         } else {
             displayQuestion(questionIndex);
         }
     });
 
-
-
 };
+
+const calculateScore = () => {
+    // si le totale des points vaut film+...
+     // alors retourne cette classe 
+
+} 
+
+
 const displayQuestion = (index) => {
     const currentQuestion = questions[index];
 
