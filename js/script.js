@@ -16,10 +16,10 @@ const questions = [{
         question: 'Recherches-tu un film ou une série ?',
         answers: [{
             title: 'Une film',
-            catégorie: 'film'
+            catégorie: 'Film'
         }, {
             title: 'Une série',
-            catégorie: 'série'
+            catégorie: 'Série'
         }]
     },
     {
@@ -218,3 +218,6 @@ const displayScreen = (screenName) => {
 
 
 window.addEventListener('load',init);
+
+
+
