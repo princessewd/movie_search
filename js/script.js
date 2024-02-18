@@ -73,10 +73,10 @@ const questions = [{
         question: 'Cela te déranges que le film/série soit en noir et blanc ?',
         answers: [{
             title: 'Oui',
-            catégorie: 'Oui'
+            catégorie: 'Couleurs'
         }, {
             title: 'Non',
-            catégorie: 'Non'
+            catégorie: 'Noir et Blanc'
         }]
     }, 
     {
@@ -105,20 +105,20 @@ const questions = [{
         question: 'Aimes- tu les films de plus de 2h/les séries de plus de 3 saisons ?',
         answers: [{
             title: 'Oui',
-            catégorie: 'Oui'
+            catégorie: 'Long'
         }, {
             title: 'Non, je détèste quand c est trop long',
-            catégorie: 'Non'
+            catégorie: 'Court'
         }]
     },
     {
         question: 'Cherches- tu un film/série avec une vrai morale/critique derrière ?',
         answers: [{
             title: 'Oui',
-            catégorie: 'Oui'
+            catégorie: 'Avec morale'
         }, {
             title: 'Non, pas forcément',
-            catégorie: 'Non'
+            catégorie: 'Sans morale'
         }]
     },
     {
