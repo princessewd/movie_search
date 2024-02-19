@@ -78,4 +78,4 @@ spinBtn.addEventListener("click", () => {
         }
 
     }, 10);
-})
+});
