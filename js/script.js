@@ -409,10 +409,6 @@ function selectOption(selectedOption) {
         showQuestion();
     } else {
         quizContainer.innerHTML = '<button onclick="hideQuiz()">x</button><h2>Quiz terminé !</h2>';
-        r = getRandomInt(255);
-        v = getRandomInt(255);
-        b = getRandomInt(255);
-        document.body.style.background = `rgb(${r},${v},${b})`;
     }
 }
 
