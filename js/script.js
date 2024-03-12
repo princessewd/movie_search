@@ -15,7 +15,7 @@ let questionIndex = 0;
 const questions = [{
         question: 'Recherches-tu un film ou une série ?',
         answers: [{
-            title: 'Une film',
+            title: 'Un film',
             catégorie: 'Film'
         }, {
             title: 'Une série',
@@ -156,9 +156,6 @@ const quizContainer = document.getElementById("quiz-container");
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
 
-function showQuiz() {
-    showQuestion();
-}
 
 function showQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
@@ -166,11 +163,16 @@ function showQuestion() {
 
     optionsElement.innerHTML = "";
 
-    currentQuestion.options.forEach((option, index) => {
+    // const questionButton = document.createElement("button");
+    // questionButton.textContent = currentQuestion.question;
+    // optionsElement.appendChild(questionButton);
+    // console.log ("Over !")
+
+    currentQuestion.answers.forEach((answer, index) => {
         const optionButton = document.createElement("button");
-        optionButton.textContent = option;
+        optionButton.textContent = answer.title;
         optionButton.classList.add("option");
-        optionButton.onclick = () => selectOption(option);
+        optionButton.onclick = () => selectOption(answer);
 
         optionsElement.appendChild(optionButton);
     });
@@ -187,10 +189,6 @@ function selectOption(selectedOption) {
         showQuestion();
     } else {
         quizContainer.innerHTML = '<button onclick="hideQuiz()">x</button><h2>Quiz terminé !</h2>';
-        r = getRandomInt(255);
-        v = getRandomInt(255);
-        b = getRandomInt(255);
-        document.body.style.background = `rgb(${r},${v},${b})`;
     }
 }
 
@@ -198,7 +196,9 @@ const overlay = document.getElementById("overlay");
 
 function showQuiz() {
     overlay.style.display = "flex";
+    // console.log ("Before !");
     showQuestion();
+    // console.log ("After !");    
 }
 
 function hideQuiz() {
