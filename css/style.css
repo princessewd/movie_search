@@ -11,3 +11,7 @@
 .quiz {
     flex-direction: column;
 }
+
+.question {
+    text-align: center;
+}
