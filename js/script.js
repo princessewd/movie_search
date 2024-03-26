@@ -163,10 +163,6 @@ function showQuestion() {
 
     optionsElement.innerHTML = "";
 
-    // const questionButton = document.createElement("button");
-    // questionButton.textContent = currentQuestion.question;
-    // optionsElement.appendChild(questionButton);
-    // console.log ("Over !")
 
     currentQuestion.answers.forEach((answer, index) => {
         const optionButton = document.createElement("button");
@@ -196,9 +192,7 @@ const overlay = document.getElementById("overlay");
 
 function showQuiz() {
     overlay.style.display = "flex";
-    // console.log ("Before !");
     showQuestion();
-    // console.log ("After !");    
 }
 
 function hideQuiz() {
